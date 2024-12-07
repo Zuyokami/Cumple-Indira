@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Indira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #0d47a1, #1976d2);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        .scroll {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            background: url('https://i.ibb.co/j6fRqT5/parchment-texture.jpg') no-repeat center/cover;
+            border: 5px solid #b8860b;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+        .scroll:hover {
+            transform: scale(1.05);
+        }
+        .scroll:after {
+            content: 'Haz clic para abrir';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9em;
+            font-style: italic;
+        }
+        .message {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .message.open {
+            display: block;
+        }
+        .hogwarts {
+            margin-top: 10px;
+        }
+        .hogwarts img {
+            width: 50px;
+            display: inline-block;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="scroll" id="scroll">
+            <h2>¡Feliz Cumpleaños, Indira!</h2>
+        </div>
+        <div class="message" id="message">
+            <h1>Querida Indira</h1>
+            <p>
+                Que este día esté lleno de magia y felicidad,<br>
+                digno de una hechicera apasionada<br>
+                ¡al más profundo estilo Ravenclaw! 🎓🪄
+            </p>
+            <p>
+                "La sabiduría no es un don, es una llama que debes encender."
+            </p>
+            <div class="hogwarts">
+                <img src="ravelcl" />
+            </div>
+        </div>
 
+    </div>
+</body>
