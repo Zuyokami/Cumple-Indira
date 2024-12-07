@@ -9,7 +9,7 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background: #0d47a1;
+            background: linear-gradient(120deg, #0d47a1, #1976d2);
             color: #fff;
             text-align: center;
             display: flex;
@@ -18,88 +18,59 @@
             height: 100vh;
             overflow: hidden;
         }
-        .container {
-            position: relative;
-            text-align: center;
-            perspective: 1000px;
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5em;
+            margin-bottom: 0;
         }
-        .envelope {
-            width: 300px;
-            height: 200px;
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            transform-origin: top;
-            transition: transform 1s ease-in-out;
+        h2 {
+            font-size: 2em;
         }
-        .envelope.open {
-            transform: rotateX(-180deg);
-        }
-        .envelope::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #d4af37, #b8860b);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-        .letter {
-            display: none;
-            position: absolute;
-            top: 10%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: auto;
-            background: url('https://i.ibb.co/j6fRqT5/parchment-texture.jpg') no-repeat center/cover;
+        .ravenclaw {
+            background: rgba(255, 255, 255, 0.1);
             padding: 20px;
-            border: 2px solid #b8860b;
-            border-radius: 10px;
-            animation: slideIn 2s ease-in-out;
+            border-radius: 15px;
+            animation: fadeIn 2s ease-in-out;
         }
-        .letter.open {
-            display: block;
-        }
-        .seal {
-            width: 50px;
-            height: 50px;
-            background: url('https://i.ibb.co/Tb5rqqF/griffindor-seal.png') no-repeat center/contain;
+        .wand-sparkle {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255, 255, 0, 0.8), rgba(255, 215, 0, 0));
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
         }
-        @keyframes slideIn {
-            from { transform: translate(-50%, 50%) scale(0.8); opacity: 0; }
-            to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        @keyframes sparkle {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+            50% { transform: translate(-50%, -50%) scale(1.5); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="envelope" id="envelope"></div>
-        <div class="letter" id="letter">
-            <h1>¡Feliz Cumpleaños!</h1>
-            <p>Querida [Nombre de tu novia],</p>
-            <p>Que este día esté lleno de magia y felicidad, digno de una verdadera hechicera. ¡Feliz cumpleaños desde Hogwarts! 🪄✨</p>
-            <div class="seal"></div>
-        </div>
+    <div class="ravenclaw">
+        <h1>¡Feliz Cumpleaños!</h1>
+        <h2>Querida [Nombre de tu novia]</h2>
+        <p>
+            Que este día esté lleno de magia y felicidad,<br>
+            digno de una verdadera Ravenclaw.<br>
+            Recuerda siempre que eres mi hechizo favorito. 🪄✨
+        </p>
     </div>
     <script>
-        const envelope = document.getElementById('envelope');
-        const letter = document.getElementById('letter');
-        
-        envelope.addEventListener('click', () => {
-            envelope.classList.add('open');
-            setTimeout(() => {
-                letter.classList.add('open');
-            }, 1000);
-        });
+        // Animación mágica
+        for (let i = 0; i < 50; i++) {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('wand-sparkle');
+            sparkle.style.top = `${Math.random() * 100}%`;
+            sparkle.style.left = `${Math.random() * 100}%`;
+            sparkle.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            document.body.appendChild(sparkle);
+        }
     </script>
 </body>
 </html>
